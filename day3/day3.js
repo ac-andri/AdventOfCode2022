@@ -43,7 +43,7 @@ findCommon = function (aRows) {
 
 }
 
-countScore = function(aCommon) {
+countScore = function (aCommon) {
     let sumScore = 0
     aCommon.forEach(element => {
         let prioScore = element.charCodeAt(0) - 96;
@@ -72,14 +72,14 @@ exports.run = function () {
 
         let score = countScore(aCommon);
         totalPriority += score;
-        
+
         //group in threes for part2
         elfGroup.push(row);
         if (elfGroup.length == 3) {
             elfGroups.push(elfGroup);
             elfGroup = [];
         }
-});
+    });
 
     reader.on("close", () => {
         console.log("\n*** DAY 3  ***");

@@ -2,7 +2,6 @@ const fs = require('fs');
 
 exports.run = function() {
 
-    console.log("*** DAY 1  ***")
     fs.readFile('day1/input.txt', 'utf-8', (err, data) => {
 
         if (err) {
@@ -29,6 +28,7 @@ exports.run = function() {
 
         aTotalCal = aTotalCal.sort();
 
+        console.log("\n*** DAY 1  ***");
         console.log("Top Elf calories: " + aTotalCal[ aTotalCal.length -1 ]);
 
         iTopThree = 0;

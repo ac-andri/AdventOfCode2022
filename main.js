@@ -1,6 +1,9 @@
+for (let i = 1; i <= 24; i++) {
 
-day1 = require('./day1/day1');
-day1.run();
-
-day2 = require('./day2/day2');
-day2.run();
+    try {
+        let day_exercise = require('./day#/day#'.replace(/#/g, i));
+        day_exercise.run();
+    } catch (error) {
+        break;
+    }
+}

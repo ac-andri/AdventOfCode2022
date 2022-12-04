@@ -48,7 +48,7 @@ calculatePlayScore = function(myPlay, opponentPlay) {
 
 
 exports.run = function() {
-    console.log("\n*** DAY 2  ***")
+    
 
     const stream = fs.createReadStream("day2/input.txt");
     //const stream = fs.createReadStream("day2/example.txt");
@@ -65,6 +65,7 @@ exports.run = function() {
     });
 
     reader.on("close", () => {
+        console.log("\n*** DAY 2  ***");
         console.log("Rock, Paper, Cissors total Score: " + totalScore);
     });
 

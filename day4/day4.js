@@ -15,6 +15,9 @@ isBetween = function (iSection, aElf) {
         return false;
     }
 }
+
+
+
 exports.run = function () {
 
     const stream = fs.createReadStream("day4/input.txt");
@@ -41,7 +44,6 @@ exports.run = function () {
         if (isBetween(elf1[0], elf2) ||
             isBetween(elf1[1], elf2)) {
             partialOverlap++;
-            console.log(row);
         }
 
     });

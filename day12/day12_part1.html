@@ -1,0 +1,204 @@
+<html>
+<canvas id="animationCanvas" width="1600" height="410"></canvas>
+<script>
+
+  let example = ['Sabqponm',
+    'abcryxxl',
+    'accszExk',
+    'acctuvwj',
+    'abdefghi'];
+
+  let input = ['abaaaaaaaaccccccccccccccccccaaaaaccccaaaaaaccccccccccccccccccccccaaaaaaaaaacccccccccccccccccccccccccccccccaaaaaccccccccccccccccccccccccccccccccccccccccccaaaaaa',
+    'abaaaaaaaacccccccccccccccccccaaaaaccccaaaacccccaaaacccccccccccccccaaaaaaaaaacccccccccccccccccccccccccccccaaaaaaccccccccccccccccccccccccccccccccccccccccccccaaaa',
+    'abccaaaaaaccccccccccccccccccaaaaaaccccaaaaccccaaaaaccccccccccaaaaaaaaaaaaaaacccccccccccccccccccccccccccccaaaacccccccccccccccccccccccccccccaaaccccccccccccccaaaa',
+    'abcaaaaaaaccccccccccccccccccaaaaccccccaccaccccaaaaaacccccccccaaaaaaaaaaaaaaacccccccccccccccccccccacccccccccaacccccccccccccccccccccccccccccaaaccccccccccccccaaaa',
+    'abccaacccaccccccccccccccccccccaaacccccccccccccaaaaaaccccccccccaaaaaaaaacaaacccccccccccccccccccaaaacccccccccccccccccccccccccaacccccccaaccccaaacccccccccccccaaaaa',
+    'abcaaaaaacccccccccccccccccccccccccccccccccccccaaaaaccccccccccaaaaaaaaaaccccaacaaccccccccccccccaaaaaacccccccccccccccccccccccaacccccccaaaacaaaaccccccccccccccaccc',
+    'abccaaaaacccccccccccccccccccccccccccccccccccaaccaaacccccccccaaaaaaaaaaaacccaaaaccccccccccccccccaaaaacccccccccccccccaacaaaaaaacccccccaaaaaaaaacccccccccccccccccc',
+    'abccaaaaaacccccccccccccccccccccccccccccaaacaaaccccccccccccccaaaaaaaaaaacccaaaaacccccccccccccccaaaaacccccccccccccaaaaaccaaaaaaaaccccccaaaaaalllllllcccaacccccccc',
+    'abccaaaaaaccccccaaaaacccccccccaaaccccccaaaaaaaccccccccccccccaaacaaacaaacccaaaaaaccccccccccccccaccaaccccccccccccccaaaaacaaaaaaaaajkkkkkkkkkklllllllccccaaaaacccc',
+    'abccaaaaacccccccaaaaacccccccccaaaaccccccaaaaaaccccccccaacaacccccaaacccccccacaaaaccccccccaaaccccccccccccccccccccccaaaaaccaaaaaaajjkkkkkkkkkkllssllllcccaaaaacccc',
+    'abcccaaaaccccccaaaaaacccccccccaaaaccccccaaaaaaaaccccccaaaaacccccaaccccccccccaacccccccccaaaacccccccccccccccaaccccaaaaaccaaaaaacjjjjkkkkkkkkssssssslllccaaaaccccc',
+    'abcccccccccccccaaaaaacccccccccaaaccccccaaaaaaaaacaaccccaaaaacccccccccccccccaaccccccccccaaaaccccccccccccccaaacccccccaaccaaaaaajjjjrrrrrrsssssssssslllcccaaaccccc',
+    'abcccccccccccccaaaaaacccccccccccccccccaaaaaaaaaaaaaaacaaaaaacccccccccccaaacaacccccccccccaaaccccaaacccccaaaaaaaaccccccccaacaaajjjrrrrrrrsssssuusssslmcccaaaacccc',
+    'abcccccccccccccccaacccccccccccccccaacaaaacaaaccaaaaaacaaaaccccccccccccccaaaaaccccccccccccccccccaaaaacccaaaaaaaaccccccccccccaajjjrrrruuurssuuuuvsqqmmcddaaaacccc',
+    'abccccccccccccccccccccccccccccccccaaaaacccaaacccaaaaccccaaccccccccccccccaaaaaaacccccccccccccccaaaaaaccccaaaaaacccccccccccccccjjrrruuuuuuuuuuuuvvqqmmmdddccccccc',
+    'abcccccccccccccccccccccccacccccccccaaaaaccaaacccaaaaccccccccccccccccccccaaaaaaacccccccccccccccaaaaaaccccaaaaaacccccccccaaccccjjjrrtuuuuuuuuyyvvvqqmmmddddcccccc',
+    'abccccccccccccccccccccaaaaccccccccaaaaaacccccaacaccacccccccccccccccccccaaaaaaccccccccccccccccccaaaaaccccaaaaaaccccccccaaaccccjjjrrttuxxxuuxyyyvvqqmmmmdddcccccc',
+    'abcccccccccaacccccccccaaaaaaccccccaaaaccccccaaaccccccccccccccccccccccccaacaaaccccccccccccccccccaacaaccccaaccaaccccaaaaaaaccccjjjrrtttxxxxxyyyyvvqqqmmmddddccccc',
+    'abccccccccaaaacccccccccaaaacccccccccaaccccccaaacaaaccccccccccccccccccaaccccaacccccccccccccccccccccccccccccccccccccaaaaaaaaaacijjqrtttxxxxxyyyvvvqqqqmmmdddccccc',
+    'abcccccacaaaaaccccccccaaaaaccccccccccccccaaaaaaaaaacccccccccccccccccaaaccccccccccccccccccccccccccccccccccccccccccccaaaaaaaaaciiiqqqttxxxxxyyyvvvvqqqqmmmdddcccc',
+    'SbcccccaaaaaaaaaacccccaacaaccccccccccccccaaaaaaaaaccccccccccccccaaacaaacccccccccccccccccccccccccccccccccccccccccccccaaaaaaaciiiqqqtttxxxEzzyyyyvvvqqqmmmdddcccc',
+    'abcccccaaaaaaaaaaccccccccccccaaccccccccccccaaaaaccccccccccccccccaaaaaaaaaacccccccaacccccccccccccaacccccccccccccccccaaaaaaccciiiqqqttxxxxyyyyyyyyvvvqqqmmmeddccc',
+    'abcccccccaaaaaacccccccccccaaaaccccccccccaaaaaaaaacccccccaaaacccccaaaaaaaaacccccaaaaccccccccccaacaaaccccccccccccccccaaaaaaaciiiqqqtttxxyyyyyyyyyvvvvqqqnnneeeccc',
+    'abcccccccaaaaaacccccccccccaaaaaaccccccccaaaaaaaaaaccccccaaaaccccccaaaaaaaccccccaaaaaaccccccccaaaaacccccccccccccccccaaccaaaciiiqqtttxxxxwwyyywwvvvvrrrnnnneeeccc',
+    'abcccccccaaaaaaccccccccccccaaaaacccccccaaaaaaacaaaccccccaaaacccccaaaaaacccccccccaaaaccccccccccaaaaaaccccaaccccccccccccccaaciiqqqtttxxxwwwyywwwwvvrrrrnnneeecccc',
+    'abccccccaaaaaaaaccccccccccaaaaaccccccccaaaaaaccccccccccccaaacccccaaaaaaacccccccaaaaaccccccccaaaaaaaaacccaaccccccccccccccccciiqqqtttttwwswwyywwrrrrrrnnnneeecccc',
+    'abccccccccccccacccccccccccaccaaccccaaccaaaaaacccccccccccaccccccccaaacaaacccccccaacaaccccccccaaaaacaaaaaaaacccccccccaacccccciiqqqqttssssswwwwwrrrrnnnnnneeeecccc',
+    'abcccccccccccccccccccccccccccccaaaaaaccccaacccccccaaacaaacccccccccccccaacaaacccccccccccccccccccaaaccaaaaaaaaccccaacaacccccciiiqqpppsssssswwwwrrrnnnnneeeeeccccc',
+    'abcccccccccccccccccccccccccccccaaaaaaaccccccccccccaaaaaaaccccccccccccccccaaacccccccccccccccccccaaaccaaaaaaaaacccaaaaacccccchhhhppppppppssswwwrroonnfeeeeacccccc',
+    'abccccccccccccccccccccaaaaaccccaaaaaaaaccccccccccccaaaaaaccccccccccccccaaaaaaaacccccccccccccccccccccaaaaaaaaaccccaaaaaaccccchhhhhpppppppsssssrroonfffeeaaaacccc',
+    'abccccccccccccccccccccaaaaacccccaaaaaaaccccccccccccaaaaaaaaccccccccccccaaaaaaaacccccccccccccccccccccaaaaaacccccaaaaaaaacccccchhhhhhhppppsssssrooofffffaaaaacccc',
+    'abcccccaacaaacccccccccaaaaaacccaaaaaacccccccccccccaaaaaaaaacccccccccccccaaaaacccccccccccccccccccccccaaaaaaaccccaaaaaccaccccccchhhhhhhhpppssssrooofffcaaaaaccccc',
+    'abcccccaaaaaacccccccccaaaaaacccaaaaaaccccccccccccaaaaaaaaaacccccccccccccaaaaaaccccccccccccccccccccccaccaaaccccccacaaaccaacccccccchhhhhgppooooooofffcaaaaacccccc',
+    'abcccccaaaaaacccccccccaaaaaaccccccaaacaacccccccccaaacaaaccccccccccaaacccaaaaaaccccccccccccccccccccccccccaaacccccccaaacaaaccccccccccchgggoooooooffffcaaaaaaccccc',
+    'abaccccaaaaaaaccccccccccaaccccccccaaaaaacccccccccccccaaaccccccccccaaaaccaaaccacaacaacccccccccccccccccccccccccccccccaaaaaaaaccccccccccggggoooooffffccaccaaaccccc',
+    'abacccaaaaaaaaccccccccccccccccccccaaaaaccccccccccccccaacccccccaaacaaaacccaaccccaaaaacccccccccccccccccccaacaacccccccaaaaaaaacccccccccccggggggggfffcccccccccccccc',
+    'abacccaaaaaaaaccccccccaaacccccccccaaaaaaccccccccccccccccccccccaaacaaaacaaaaccccaaaaaaccccccccaaccccccccaaaaaccccccccaaaaaaacccccccccccaaggggggffcccccccccccccca',
+    'abcccccccaaacccccccccaaaaaaccccccaaaaaaaacccccccccccccccccccaaaaaaaaaaaaaaaccccaaaaaaccccccacaaaacccccccaaaaacccccccaaaaaccccccccccccaaacgggggaccccccccccccccaa',
+    'abcccccccaaccccccccccaaaaaaccccccaaaaaaaacccccccaaacccccccccaaaaaaaaaaaaaaaacccaaaaaaccccccaaaaaaccccccaaaaaaccccccaaaaaaacccccccccccaaaccccaaaccccccccccaaacaa',
+    'abcccccccccccccccccccaaaaaccccccccccaaccccccccaaaaaccccccccccaaaaaaaaaaaaaaaaccccaaaccccccccaaaacccccccaaaaccccccccccccaaccccccccccccccccccccccccccccccccaaaaaa',
+    'abccccccccccccccccccccaaaaacccccccccaaccccccccaaaaaacccccccccaaaaaaaaaaaaaaaacccccccccccccccaaaacccccccccaacccccccccccccccccccccccccccccccccccccccccccccccaaaaa']
+
+  let aMaze = [];
+  let canvas;
+  let canvasContext;
+  let Start = {};
+  let End = {};
+  let oCurrentPoint = {};
+
+  let h = 0;
+  let y = 0;
+  input.forEach(e => {
+
+    let row = [];
+    for (let i = 0; i < e.length; i++) {
+      let h = (e[i].charCodeAt() - 96);
+      if (e[i] == 'S') {
+        h = 1;
+        Start.x = i;
+        Start.y = y;
+        Start.z = h;
+      } else if (e[i] == 'E') {
+        h = 26;
+        End.x = i;
+        End.y = y;
+        End.z = h;
+      }
+      row.push(h);
+    }
+    aMaze.push(row);
+    y++;
+  });
+
+
+  let oVisited = new Set();
+
+  visit = function (oPoint) {
+    oVisited.add(`x${oPoint.x}y${oPoint.y}`);
+  }
+
+  isVisited = function (oPoint) {
+    return oVisited.has(`x${oPoint.x}y${oPoint.y}`);
+  }
+
+  getNeighbours = function (oPoint) {
+    aNeighbours = [];
+    nX = oPoint.x;
+    nY = oPoint.y;
+    for (let i = 1; i >= -1; i -= 2) {
+      nX = oPoint.x + i;
+      if (nX >= 0 && nX < aMaze[0].length) {
+        aNeighbours.push({ x: nX, y: oPoint.y });
+      }
+      nY = oPoint.y + i;
+      if (nY >= 0 && nY < aMaze.length) {
+        aNeighbours.push({ x: oPoint.x, y: nY });
+      }
+    }
+    return aNeighbours;
+  }
+
+
+  BFSStep = function () {
+    if (aQ.length <= 0) {
+      return;
+    }
+    //do {
+    oCurrentPoint = aQ.shift();
+
+
+    if (oCurrentPoint && oCurrentPoint.x == End.x && oCurrentPoint.y == End.y) {
+      return oCurrentPoint;
+    }
+
+    aNeighbours = getNeighbours(oCurrentPoint);
+    aNeighbours.forEach(neighbour => {
+
+      if (!isVisited(neighbour)) {
+        neighbour.z = aMaze[neighbour.y][neighbour.x];
+        if ((neighbour.z - oCurrentPoint.z) <= 1) {
+          neighbour.parent = oCurrentPoint;
+          aQ.push(neighbour);
+          visit(neighbour);
+        }
+      }
+    });
+  }
+
+  aQ = [];
+  BFS = function (start) {
+    oCurrentPoint = start;
+    oCurrentPoint.parent = null;
+    aQ.push(oCurrentPoint);
+    visit(oCurrentPoint);
+
+    BFSStep();
+  }
+
+  window.onload = function () {
+    canvas = document.getElementById('animationCanvas');
+    canvasContext = canvas.getContext('2d');
+    canvasContext.font = "48px serif";
+    setInterval(drawEverything, 5);
+    BFS(Start);
+  }
+
+  function drawTail() {
+    let oPoint = oCurrentPoint;
+    canvasContext.fillStyle = `blue`;
+    let iSteps = 0;
+    do {
+      canvasContext.fillRect(oPoint.x * 10, oPoint.y * 10, 10, 10);
+      if (!oPoint.parent) {
+        break;
+      }
+      oPoint = oPoint.parent;
+      iSteps++;
+    } while (oPoint.parent);
+    canvasContext.fillText(iSteps, (aMaze[0].length - 8) * 10, 50);
+  }
+
+  function drawMaze() {
+    for (let i = 0; i < aMaze.length; i++) {
+      const row = aMaze[i];
+      for (let j = 0; j < row.length; j++) {
+        const p = row[j];
+
+        canvasContext.fillStyle = `rgb(
+        ${50},
+        ${Math.floor(255 - 9 * p)},
+        ${Math.floor(155 - 2 * p)}`;
+
+        canvasContext.fillRect(j * 10, i * 10, 10, 10);
+      }
+    }
+    canvasContext.fillStyle = `red`;
+    canvasContext.fillRect(Start.x * 10, Start.y * 10, 10, 10);
+    canvasContext.fillStyle = `red`;
+    canvasContext.fillRect(End.x * 10, End.y * 10, 10, 10);
+  }
+
+  endPoint = null;
+  function drawEverything() {
+    drawMaze();
+    drawTail();
+
+    if (!endPoint) {
+      endPoint = BFSStep();
+    }
+  }
+
+</script>
+
+</html>

@@ -3,35 +3,35 @@
 <script>
 
 
-  let input = [ 'Sensor at x=2557568, y=3759110: closest beacon is at x=2594124, y=3746832',
-                'Sensor at x=2684200, y=1861612: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=1003362, y=1946094: closest beacon is at x=1972523, y=2563441',
-                'Sensor at x=2142655, y=1481541: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2796219, y=1955744: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=3890832, y=1818644: closest beacon is at x=3454717, y=2547103',
-                'Sensor at x=2828842, y=1921726: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=2065227, y=583957: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2725784, y=2088998: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=3574347, y=927734: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2939312, y=2652370: closest beacon is at x=3454717, y=2547103',
-                'Sensor at x=2495187, y=3681541: closest beacon is at x=2431306, y=3703654',
-                'Sensor at x=2878002, y=2054681: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=1539310, y=3235516: closest beacon is at x=1972523, y=2563441',
-                'Sensor at x=545413, y=533006: closest beacon is at x=-538654, y=69689',
-                'Sensor at x=1828899, y=3980292: closest beacon is at x=2431306, y=3703654',
-                'Sensor at x=3275729, y=2937931: closest beacon is at x=3454717, y=2547103',
-                'Sensor at x=600131, y=3861189: closest beacon is at x=2431306, y=3703654',
-                'Sensor at x=2089895, y=28975: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2960402, y=3942666: closest beacon is at x=2594124, y=3746832',
-                'Sensor at x=3785083, y=3905392: closest beacon is at x=2594124, y=3746832',
-                'Sensor at x=1721938, y=1077173: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2515156, y=3751221: closest beacon is at x=2594124, y=3746832',
-                'Sensor at x=2469423, y=2109095: closest beacon is at x=2816974, y=2000000',
-                'Sensor at x=1776986, y=904092: closest beacon is at x=1932524, y=967542',
-                'Sensor at x=2789294, y=3316115: closest beacon is at x=2594124, y=3746832',
-                'Sensor at x=3538757, y=2695066: closest beacon is at x=3454717, y=2547103',
-                'Sensor at x=2299738, y=2708004: closest beacon is at x=1972523, y=2563441',
-                'Sensor at x=2388366, y=3234346: closest beacon is at x=2431306, y=3703654'];
+  let input = ['Sensor at x=2557568, y=3759110: closest beacon is at x=2594124, y=3746832',
+    'Sensor at x=2684200, y=1861612: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=1003362, y=1946094: closest beacon is at x=1972523, y=2563441',
+    'Sensor at x=2142655, y=1481541: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2796219, y=1955744: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=3890832, y=1818644: closest beacon is at x=3454717, y=2547103',
+    'Sensor at x=2828842, y=1921726: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=2065227, y=583957: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2725784, y=2088998: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=3574347, y=927734: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2939312, y=2652370: closest beacon is at x=3454717, y=2547103',
+    'Sensor at x=2495187, y=3681541: closest beacon is at x=2431306, y=3703654',
+    'Sensor at x=2878002, y=2054681: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=1539310, y=3235516: closest beacon is at x=1972523, y=2563441',
+    'Sensor at x=545413, y=533006: closest beacon is at x=-538654, y=69689',
+    'Sensor at x=1828899, y=3980292: closest beacon is at x=2431306, y=3703654',
+    'Sensor at x=3275729, y=2937931: closest beacon is at x=3454717, y=2547103',
+    'Sensor at x=600131, y=3861189: closest beacon is at x=2431306, y=3703654',
+    'Sensor at x=2089895, y=28975: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2960402, y=3942666: closest beacon is at x=2594124, y=3746832',
+    'Sensor at x=3785083, y=3905392: closest beacon is at x=2594124, y=3746832',
+    'Sensor at x=1721938, y=1077173: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2515156, y=3751221: closest beacon is at x=2594124, y=3746832',
+    'Sensor at x=2469423, y=2109095: closest beacon is at x=2816974, y=2000000',
+    'Sensor at x=1776986, y=904092: closest beacon is at x=1932524, y=967542',
+    'Sensor at x=2789294, y=3316115: closest beacon is at x=2594124, y=3746832',
+    'Sensor at x=3538757, y=2695066: closest beacon is at x=3454717, y=2547103',
+    'Sensor at x=2299738, y=2708004: closest beacon is at x=1972523, y=2563441',
+    'Sensor at x=2388366, y=3234346: closest beacon is at x=2431306, y=3703654'];
 
   let example = ['Sensor at x=2, y=18: closest beacon is at x=-2, y=15',
     'Sensor at x=9, y=16: closest beacon is at x=10, y=16',
@@ -48,13 +48,14 @@
     'Sensor at x=14, y=3: closest beacon is at x=15, y=3',
     'Sensor at x=20, y=1: closest beacon is at x=15, y=3'];
 
-  
+
+  queryRow = 2000000;//10;
   ps = 10;
   xShift = -10;
   yShift = -10;
   aMap = new Map();
   aSensors = [];
-  input = example;
+  //input = example;
 
   Sensor = function (aPos, aBeacon) {
     s = {};
@@ -67,22 +68,62 @@
     s.colorPerim = `rgba(${r},${g},${b},0.2)`;
 
     s.draw = function () {
+      //draw lines
+    };
+
+    s.drawPoint = function () {
       canvasContext.fillStyle = this.color;
       canvasContext.fillRect((this.pos.x - xShift) * ps, (this.pos.y - yShift) * ps, ps, ps);
       setPos(this.pos.x, this.pos.y, 's');
+    };
 
+    s.drawBeacon = function () {
       canvasContext.fillStyle = `red`;
       canvasContext.fillRect((this.beacon.x - xShift) * ps, (this.beacon.y - yShift) * ps, ps, ps);
-      setPos(this.beacon.x, this.beacon.y,'b');
+      setPos(this.beacon.x, this.beacon.y, 'b');
+    };
 
-      canvasContext.fillStyle = this.colorPerim;
+    s.rasterY = function (inY) {
+      this.drawPoint();
+      this.drawBeacon();
+
       let dX = this.pos.x - this.beacon.x;
       let dY = this.pos.y - this.beacon.y;
       dXsign = Math.sign(dX);
       dYsign = Math.sign(dY);
 
       let dist = Math.abs(dX) + Math.abs(dY);
+      let i = inY - this.pos.y;
 
+      if (i < -dist || i > dist) {
+        return;
+      }
+
+      let width = (dist - Math.abs(i));
+      let delta = -(width);
+      do {
+        let x = this.pos.x + delta;
+        let y = this.pos.y + i;
+        let y2 = this.pos.y + i;
+        setPos(x, y, 'x');
+        canvasContext.fillStyle = 'yellow';
+        canvasContext.fillRect((x - xShift) * ps, (y - yShift) * ps, ps, ps);
+        delta++;
+      } while (delta <= width);
+    };
+
+
+    s.raster = function () {
+      this.drawPoint();
+      this.drawBeacon();
+
+
+      canvasContext.fillStyle = this.colorPerim;
+      let dX = this.pos.x - this.beacon.x;
+      let dY = this.pos.y - this.beacon.y;
+      dXsign = Math.sign(dX);
+      dYsign = Math.sign(dY);
+      let dist = Math.abs(dX) + Math.abs(dY);
       for (let i = -dist; i <= dist; i++) {
         let width = (dist - Math.abs(i));
         let delta = -(width);
@@ -90,8 +131,8 @@
           let x = this.pos.x + delta;
           let y = this.pos.y + i;
           let y2 = this.pos.y + i;
-          setPos(x,y,'x');
-          canvasContext.fillRect((x- xShift) * ps, (y - yShift) * ps, ps, ps);
+          //setPos(x, y, 'x');
+          canvasContext.fillRect((x - xShift) * ps, (y - yShift) * ps, ps, ps);
           delta++;
         } while (delta <= width);
       }
@@ -99,7 +140,7 @@
     return s;
   }
 
-  
+
   function getPos(x, y) {
     let aRow = aMap.get(y);
     if (!aRow) {
@@ -116,8 +157,8 @@
   }
 
   function setPos(x, y, typ) {
-    let pos = getPos(x,y);
-    if (typ == 'x' && ( pos == 's' || pos == 'b' ) ) {
+    let pos = getPos(x, y);
+    if (typ == 'x' && (pos == 's' || pos == 'b')) {
       return;
     }
 
@@ -131,7 +172,7 @@
 
 
 
-  
+
   input.forEach(e => {
     let row = [...e.matchAll(/(-?[0-9]+)/g)];
 
@@ -139,6 +180,7 @@
     let beacon = [parseInt([row[2][0]]), parseInt([row[3][0]])];
 
     oSensor = new Sensor(sensor, beacon);
+
     aSensors.push(oSensor);
   });
 
@@ -159,12 +201,12 @@
     else if (e.keyCode == '37') {
       // left arrow
       currentSensor--;
-      currentSensor %= (aSensors.length+1)
+      currentSensor %= (aSensors.length + 1)
     }
     else if (e.keyCode == '39') {
       // right arrow
       currentSensor++;
-      currentSensor %= ( aSensors.length+1);
+      currentSensor %= (aSensors.length + 1);
     }
 
   }
@@ -187,21 +229,22 @@
     canvasContext.fill();
 
     for (let i = 0; i < aSensors.length; i++) {
-      if (currentSensor != i && currentSensor != aSensors.length) { 
+      if (currentSensor != i && currentSensor != aSensors.length) {
         continue;
       }
-      aSensors[i].draw();
+      //aSensors[i].raster();
+      aSensors[i].rasterY(queryRow);
     }
 
     iCount = 0;
-    /*let row = aMap.get(10);
+    let row = aMap.get(queryRow);
     row.forEach(e => {
       if ( e == 'x' ){
         iCount++;
       }
     });
-    */
-    console.log('Beacon cant be in ', iCount, ' locations' );
+    
+    console.log('Beacon cant be in ', iCount, ' locations');
 
   }
 
